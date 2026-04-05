@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 
 import { Confirm } from "../pages/Confirm";
 import { NotFound } from "../pages/NotFound";
