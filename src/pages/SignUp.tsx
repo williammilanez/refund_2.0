@@ -21,7 +21,9 @@ export function SignUp() {
         required
         legend="Name"
         placeholder="Seu nome"
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setName(e.target.value)
+        }
       />
 
       <Input
@@ -29,7 +31,9 @@ export function SignUp() {
         legend="E-mail"
         type="email"
         placeholder="seu@email.com"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
       />
 
       <Input
@@ -37,7 +41,9 @@ export function SignUp() {
         legend="Senha"
         type="password"
         placeholder="123456"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPassword(e.target.value)
+        }
       />
 
       <Input
@@ -45,7 +51,9 @@ export function SignUp() {
         legend="Confirmação da Senha"
         type="password"
         placeholder="123456"
-        onChange={(e) => setPasswordConfirm(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setPasswordConfirm(e.target.value)
+        }
       />
 
       <Button type="submit" isLoading={isLoading}>
