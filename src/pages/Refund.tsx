@@ -49,7 +49,9 @@ export function Refund() {
         required
         legend="Nome da solicitação"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setName(e.target.value)
+        }
         disabled={!!params.id}
       />
 
@@ -58,7 +60,9 @@ export function Refund() {
           required
           legend="Categoria"
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setCategory(e.target.value)
+          }
           disabled={!!params.id}
         >
           {CATEGORIES_KEYS.map((category) => (
@@ -71,7 +75,9 @@ export function Refund() {
         <Input
           legend="Valor"
           value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setAmount(e.target.value)
+          }
           disabled={!!params.id}
         />
       </div>
@@ -88,7 +94,9 @@ export function Refund() {
       ) : (
         <Upload
           filename={filename && filename.name}
-          onChange={(e) => e.target.files && setFilename(e.target.files[0])}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            e.target.files && setFilename(e.target.files[0])
+          }
         />
       )}
 

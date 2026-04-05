@@ -55,7 +55,9 @@ export function Dashboard() {
       >
         <Input
           placeholder="Pesquisar pelo nome"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setName(e.target.value)
+          }
         />
 
         <Button type="submit" variant="icon">
