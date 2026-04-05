@@ -3,6 +3,7 @@ import { useState } from "react";
 import searchSvg from "../assets/search.svg";
 
 import { CATEGORIES } from "../utils/categories";
+import { formatCurrency } from "../utils/formatCurrency";
 
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
@@ -12,7 +13,7 @@ const REFUND_EXAMPLE = {
   id: "123",
   name: "William",
   category: "Transporte",
-  amount: "34,50",
+  amount: formatCurrency(34.5),
   categoryImg: CATEGORIES["transport"].icon,
 };
 
