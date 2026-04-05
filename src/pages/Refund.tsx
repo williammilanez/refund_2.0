@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import { CATEGORIES, CATEGORIES_KEYS } from "../utils/categories";
 
@@ -9,16 +9,21 @@ import { Select } from "../components/Select";
 import { Upload } from "../components/Upload";
 
 export function Refund() {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
+  const [name, setName] = useState("Teste");
+  const [amount, setAmount] = useState("34");
+  const [category, setCategory] = useState("transport");
   const [isLoading, setIsLoading] = useState(false);
   const [filename, setFilename] = useState<File | null>(null);
 
   const navigate = useNavigate();
+  const params = useParams<{ id: string }>();
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    if (params.id) {
+      return navigate(-1);
+    }
 
     console.log(name, amount, category, filename);
     navigate("/confirm", { state: { fromSubmit: true } });
@@ -43,6 +48,7 @@ export function Refund() {
         legend="Nome da solicitação"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        disabled={!!params.id}
       />
 
       <div className="flex gap-4">
@@ -51,6 +57,7 @@ export function Refund() {
           legend="Categoria"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+          disabled={!!params.id}
         >
           {CATEGORIES_KEYS.map((category) => (
             <option key={category} value={category}>
@@ -63,6 +70,7 @@ export function Refund() {
           legend="Valor"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          disabled={!!params.id}
         />
       </div>
 
@@ -72,7 +80,7 @@ export function Refund() {
       />
 
       <Button type="submit" isLoading={isLoading}>
-        Enviar
+        {params.id ? "Voltar" : "Enviar"}
       </Button>
     </form>
   );
