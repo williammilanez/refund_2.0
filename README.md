@@ -37,7 +37,7 @@ O projeto foi construído com foco em boas práticas de desenvolvimento front-en
 
 ## 🌐 Acesso
 
-🔗 **Aplicação:** https://refound.vercel.app
+🔗 **Aplicação:** https://refund-2-0-gilt.vercel.app/
 
 ---
 
