@@ -6,7 +6,7 @@ import { CATEGORIES } from "../utils/categories";
 import { formatCurrency } from "../utils/formatCurrency";
 
 import { Button } from "../components/Button";
-import { Input } from "../components/Input";
+import { Input } from "../components/input";
 import { Pagination } from "../components/Pagination";
 import type { RefundItemProps } from "../components/RefundItem";
 import { RefundItem } from "../components/RefundItem";

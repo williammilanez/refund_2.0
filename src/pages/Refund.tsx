@@ -6,7 +6,7 @@ import fileSvg from "../assets/file.svg";
 import { CATEGORIES, CATEGORIES_KEYS } from "../utils/categories";
 
 import { Button } from "../components/Button";
-import { Input } from "../components/Input";
+import { Input } from "../components/input";
 import { Select } from "../components/Select";
 import { Upload } from "../components/Upload";
 
