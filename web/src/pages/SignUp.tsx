@@ -50,8 +50,7 @@ export function SignUp() {
       await api.post("/users", data);
 
       if (confirm("Cadastrado com sucesso. Ir para a tela de entrar?")) {
-        navigate;
-        ("/");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);
