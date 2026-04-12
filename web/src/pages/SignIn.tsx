@@ -7,7 +7,7 @@ export function SignIn() {
   const [isLoading] = useState(false);
 
   function onAction(formData: FormData) {
-    console.log(formData.get("email, password"));
+    console.log(formData.get("password"));
   }
 
   return (
