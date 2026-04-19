@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Logo Refound" src="./src/assets/logo.svg" width="250px" />
+  <img alt="Logo Refound" src="./web/src/assets/logo.svg" width="250px" />
 </p>
 
 <p align="center">
@@ -13,31 +13,38 @@
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8A5CF6&labelColor=131516">
   <img src="https://img.shields.io/badge/status-active-success" alt="Status: active">
   <img src="https://img.shields.io/badge/frontend-react-61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/backend-node-339933" alt="Node.js">
+  <img src="https://img.shields.io/badge/api-express-000000" alt="Express">
+  <img src="https://img.shields.io/badge/database-sqlite-003B57" alt="SQLite">
+  <img src="https://img.shields.io/badge/orm-prisma-2D3748" alt="Prisma">
   <img src="https://img.shields.io/badge/styling-tailwind-38B2AC" alt="Tailwind">
 </p>
 
 ---
 
 <p align="center">
-  <img alt="Projeto Refound" src="./src/assets/project-cover.png" width="75%">
+  <img alt="Projeto Refound" src="./web/src/assets/project-cover.png" width="75%">
 </p>
 
 ## 💻 Projeto
 
-O **Refound** é uma aplicação web para **gestão de solicitações de reembolso**, desenvolvida com foco em interfaces modernas, componentização e organização escalável de código front-end.
+O **Refound** é uma aplicação **fullstack** para gestão de solicitações de reembolso.
 
-A aplicação simula um fluxo corporativo real de solicitação, análise e aprovação de reembolsos, com dois perfis de acesso:
+O sistema simula um fluxo corporativo completo de solicitação, análise e aprovação de reembolsos, permitindo que usuários criem pedidos e administradores realizem a gestão dessas solicitações.
 
-- **Employee (Usuário)** → realiza solicitações de reembolso
+A aplicação conta com dois perfis de acesso:
+
+- **Employee (Usuário)** → cria solicitações de reembolso
 - **Manager (Administrador)** → visualiza, busca e gerencia solicitações
 
-O projeto foi construído com foco em boas práticas de desenvolvimento front-end, incluindo separação de responsabilidades, reutilização de componentes e estrutura modular.
+O projeto foi desenvolvido com foco em boas práticas de engenharia de software, incluindo separação de responsabilidades, reutilização de componentes e organização em **monorepo**, com frontend e backend desacoplados.
 
 ---
 
 ## 🌐 Acesso
 
-🔗 **Aplicação:** https://refund-2-0-gilt.vercel.app/
+🔗 **Frontend:** https://refund-2-0-gilt.vercel.app/
+🔗 **API:** (em breve)
 
 ---
 
@@ -45,39 +52,49 @@ O projeto foi construído com foco em boas práticas de desenvolvimento front-en
 
 #### 🔐 Autenticação
 
-- Tela de login
-- Criação de conta
-- Navegação entre rotas protegidas
-- Página de fallback (Not Found)
+- Cadastro de usuário
+- Login com autenticação via token (JWT)
+- Persistência de sessão (localStorage)
+- Controle de acesso por perfil
+- Rotas protegidas e fallback (Not Found)
 
 #### 👤 Employee
 
-- Criação de solicitação de reembolso
-- Seleção de categoria dinâmica
-- Inserção de valor com formatação
+- Criar solicitação de reembolso
+- Selecionar categoria
+- Inserir valor formatado
 - Upload de comprovante
-- Redirecionamento para tela de confirmação
+- Visualizar confirmação da solicitação
 
 #### 🧑‍💼 Manager
 
-- Dashboard de solicitações
-- Busca por nome
-- Listagem de dados com componente reutilizável
+- Visualizar solicitações em dashboard
+- Buscar solicitações por nome
 - Paginação de resultados
-- Visualização de detalhes da solicitação
-- Acesso ao comprovante enviado
+- Visualizar detalhes da solicitação
+- Acessar comprovantes enviados
 
 ---
 
 ## 🚀 Tecnologias
 
-Desenvolvido com:
+#### Frontend (web)
 
 - **React**
 - **TypeScript**
 - **Vite**
 - **Tailwind CSS**
 - **React Router**
+- **Axios**
+- **Zod**
+
+#### Backend (api)
+
+- **Node.js**
+- **Express**
+- **TypeScript**
+- **Prisma ORM**
+- **SQLite**
 
 ### Recursos aplicados
 
@@ -89,6 +106,18 @@ Desenvolvido com:
 - Estilização com Tailwind (utility-first)
 - Responsividade com breakpoints
 - Organização modular de arquivos
+
+---
+
+## 🏗️ Arquitetura
+
+Projeto estruturado como monorepo:
+
+```bash
+refund_2.0/
+ ┣ web/   → Frontend (React)
+ ┣ api/   → Backend (Node + Express)
+```
 
 ---
 
@@ -112,36 +141,58 @@ O layout foi construído com base em um design do Figma, com foco em:
 - Node.js instalado
 - NPM ou Yarn
 
-### Passos
+---
+
+## 🔧 Instalação
 
 ```bash
 # Clone o repositório
-git clone https://github.com/williammilanez/refound.git
+git clone https://github.com/williammilanez/refund_2.0.git
 
 # Acesse a pasta
-cd refound
+cd refund_2.0
 
-# Instale as dependências
+# Instale dependências da raiz
 npm install
 
-# Execute o projeto
+# Instale dependências do frontend
+cd web
+npm install
+
+# Volte e instale backend
+cd ../api
+npm install
+
+# Volte para raiz
+cd ..
+
+# Execute
 npm run dev
 ```
 
 ---
 
+### Acessos locais
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3333
+- Prisma Studio: http://localhost:5555
+
+---
+
 ## 📚 Aprendizados Aplicados
 
-Durante o desenvolvimento, foram aplicados conceitos essenciais de engenharia front-end:
-
-- Estruturação de aplicações React escaláveis
-- Criação de componentes reutilizáveis
-- Controle de formulários e eventos
-- Upload de arquivos no front-end
-- Roteamento com controle por perfil (RBAC)
-- Separação entre layout e páginas
-- Organização de código orientada a manutenção
-- Boas práticas de commits (Conventional Commits)
+- Arquitetura fullstack (frontend + backend)
+- Organização de projetos em monorepo
+- Integração entre frontend e API
+- Autenticação com JWT
+- Upload e manipulação de arquivos
+- Validação de dados com Zod
+- Consumo de API com Axios
+- Paginação e busca de dados
+- Componentização e reutilização de UI
+- Tipagem com TypeScript
+- Boas práticas com Git (Conventional Commits)
 
 ---
 
