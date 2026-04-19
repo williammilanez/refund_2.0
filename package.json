@@ -1,0 +1,16 @@
+{
+  "name": "refund_2.0",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix web\" \"npm run dev --prefix api\"",
+    "dev:web": "npm run dev --prefix web",
+    "dev:api": "npm run dev --prefix api",
+    "build": "npm run build --prefix web",
+    "build:web": "npm run build --prefix web",
+    "build:api": "npm run build --prefix api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
