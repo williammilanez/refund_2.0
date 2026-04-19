@@ -1,0 +1,21 @@
+# Node
+node_modules
+
+# Env
+.env
+
+# Build
+dist
+build
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Prisma (backend)
+api/prisma/dev.db
+
+# Uploads (backend)
+api/tmp/uploads
