@@ -1,11 +1,12 @@
 import { AxiosError } from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { z, ZodError } from "zod";
 
 import fileSvg from "../assets/file.svg";
 import { api } from "../services/api";
 import { CATEGORIES, CATEGORIES_KEYS } from "../utils/categories";
+import { formatCurrency } from "../utils/formatCurrency";
 
 import { Button } from "../components/Button";
 import { Input } from "../components/input";
@@ -28,6 +29,7 @@ export function Refund() {
   const [category, setCategory] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
+  const [fileURL, setFileURL] = useState<string | null>(null);
 
   const navigate = useNavigate();
   const params = useParams<{ id: string }>();
@@ -80,6 +82,31 @@ export function Refund() {
     }
   }
 
+  async function fetchRefund(id: string) {
+    try {
+      const { data } = await api.get<RefundAPIResponse>(`/refunds/${id}`);
+
+      setName(data.name);
+      setCategory(data.category);
+      setAmount(formatCurrency(data.amount));
+      setFileURL(data.filename);
+    } catch (error) {
+      console.log(error);
+
+      if (error instanceof AxiosError) {
+        return alert(error.response?.data.message);
+      }
+
+      alert("Não foi possível carregar");
+    }
+  }
+
+  useEffect(() => {
+    if (params.id) {
+      fetchRefund(params.id);
+    }
+  }, [params.id]);
+
   return (
     <form
       onSubmit={onSubmit}
@@ -131,7 +158,7 @@ export function Refund() {
         />
       </div>
 
-      {params.id ? (
+      {params.id && fileURL ? (
         <a
           href="https://www.rocketseat.com.br/"
           target="_blank"
