@@ -43,7 +43,7 @@ O projeto foi desenvolvido com foco em boas práticas de engenharia de software,
 
 ## 🌐 Acesso
 
-🔗 **Frontend:** https://refund-2-0-gilt.vercel.app/
+🔗 **Frontend:** https://refund-2-0-alpha.vercel.app/ <br>
 🔗 **API:** (em breve)
 
 ---
